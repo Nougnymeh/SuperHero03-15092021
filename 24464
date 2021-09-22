@@ -1,0 +1,84 @@
+ class SuperHero
+    {
+        string name;
+        string heroname;
+        string univers;
+        
+
+        public SuperHero(string name, string heroname, string univers)
+        {
+            this.name = name;
+            this.heroname = heroname;
+            this.univers = univers;
+            
+        }
+      
+        public string [] Powers { get; set; }
+        
+        public string AllPower()
+        {
+            string sentence = null;
+            for (int i=0; i< Powers.Length; i++)
+            {
+                sentence = Powers[i] +", "+ sentence;
+            }
+            return sentence;
+        }
+       
+
+        public override string ToString()
+        {
+            return $"{name} also Know as {heroname}. My powers are: {AllPower()}. ";
+        }
+        
+    }
+    
+    ====================================================
+    class GroupofSuperHeros
+    {
+        string name_group;
+        SuperHero[] myheros;
+        
+        public GroupofSuperHeros (string name_group, SuperHero[] myheros)
+        {
+            this.name_group = name_group;
+            this.myheros = myheros;
+        }
+
+        public string Allheros()
+        {
+            string sentence=null;
+            for(int i=0; i< myheros.Length; i++)
+            {
+                sentence=  myheros[i].ToString() + sentence+ '\n';
+            }
+            return sentence;
+        }
+
+        
+        public string ToString ()
+        {
+            return $" In {name_group}, there is: '\n'  "+ Allheros();
+        }
+
+    }
+    =================================================
+     static void Main(string[] args)
+        {
+            SuperHero superhero1 = new SuperHero("Susan Storm Richards", "Invisible Woman", "marvel");
+            superhero1.Powers = new string[] { "invisible", "amazing vision", "create and control invisible force field" };
+
+            SuperHero superhero2 = new SuperHero("Johnny Storm","Human Torch","marvel");
+            superhero2.Powers = new string[] { "Flamethrower", "fly" };
+
+            SuperHero superhero3 = new SuperHero("Orphan Benjamin J. Grimm", "The Thing", "marvel");
+            superhero3.Powers = new string[] { "physical strength", "high temperature Resist "};
+
+            SuperHero superhero4 = new SuperHero("Reed Richards", "Mister Fantastic", "marvel");
+            superhero4.Powers = new string[] { "elastic human", "highest intellect" };
+
+            SuperHero[] CesHeros = { superhero1, superhero2, superhero3, superhero4 };
+            GroupofSuperHeros quatreFantastic = new GroupofSuperHeros("FANTASTIC FOUR", CesHeros);
+            Console.WriteLine(quatreFantastic.ToString());
+            Console.ReadKey();
+        }
