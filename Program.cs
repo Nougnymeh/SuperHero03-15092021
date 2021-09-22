@@ -1,15 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SuperHero03
 {
+    //https://github.com/DorsetOppSemster2021/SuperHero03-15092021
+
     class Program
     {
         static void Main(string[] args)
         {
 
-            string[] Powers = new string[] { "Run at mac5", "go back in the past" };
+            //  string[] Powers = new string[] { "Run at mac5", "go back in the past" };
 
-            SuperHero superHero = new SuperHero("Barry Allen", "The Flash", Powers);
+            List<string> Powers = new List<string>() { "Run at mac5", "go back in the past" };
+
+            SuperHero superHero = new SuperHero("Barry Allen", "The Flash", Powers.ToArray());
 
             string description = superHero.ToString();
 
@@ -28,6 +33,18 @@ namespace SuperHero03
 
 
             superHero2.DisplayPowers();
+
+            SuperHero superHero3 = new()
+            {
+                Alias = "Bruce Banner",
+                HeroName = "The Hulk",
+                Powers = new string[] { "Super Strength" },
+
+
+            };
+
+            superHero3.DisplayPowers();
+
 
 
 
